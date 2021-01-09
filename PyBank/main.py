@@ -2,9 +2,10 @@
 import os
 import csv
 
-#Creating an object out of the CSV file
+#Establish the path of the .csv file
 budget_data = os.path.join('..','PyBank','Resources','budget_data.csv')
 
+#Creating variables and list to hold variabls
 total_months = 0
 total_pl = 0
 value = 0
