@@ -17,7 +17,7 @@ percent_votes = []
 # A counter for the total number of votes 
 total_votes = 0
 
-#open and read into the csv file
+# open and read into the csv file
 with open(election_data, newline = "") as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ",")
     csv_header = next(csvreader)
