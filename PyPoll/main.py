@@ -25,13 +25,8 @@ with open(election_data, newline = "") as csvfile:
     for row in csvreader:
         # Add to our vote-counter 
         total_votes += 1 
-
-        '''
-        If the candidate is not on our list, add his/her name to our list, along with 
-        a vote in his/her name.
-        If he/she is already on our list, we will simply add a vote in his/her
-        name 
-        '''
+        # If the candidate is not on our list, add his/her name to our list, along with a vote in his/her name.
+        # If the candidate is already on our list, we will simply add a vote in his/her name 
         if row[2] not in candidates:
             candidates.append(row[2])
             index = candidates.index(row[2])
@@ -52,7 +47,7 @@ with open(election_data, newline = "") as csvfile:
     index = num_votes.index(winner)
     winning_candidate = candidates[index]
 
-# Displaying results
+# Display Election results
 print("Election Results")
 print("--------------------------")
 print(f"Total Votes: {str(total_votes)}")
@@ -63,17 +58,20 @@ print("--------------------------")
 print(f"Winner: {winning_candidate}")
 print("--------------------------")
 
-# Exporting to .txt file
-# output = open("output.txt", "w")
-# line1 = "Election Results"
-# line2 = "--------------------------"
-# line3 = str(f"Total Votes: {str(total_votes)}")
-# line4 = str("--------------------------")
-# output.write('{}\n{}\n{}\n{}\n'.format(line1, line2, line3, line4))
-# for i in range(len(candidates)):
-#     line = str(f"{candidates[i]}: {str(percent_votes[i])} ({str(num_votes[i])})")
-#     output.write('{}\n'.format(line))
-# line5 = "--------------------------"
-# line6 = str(f"Winner: {winning_candidate}")
-# line7 = "--------------------------"
-# output.write('{}\n{}\n{}\n'.format(line5, line6, line7))
+#Election Results
+#Exporting the tx file into the analysis directory
+
+from os.path import abspath
+with open ('/Users/bintucolley/Desktop/python-challenge/PyPoll/Analysis/output.txt', mode = 'w') as output:
+    line1 = "Election Results"
+    line2 = "--------------------------"
+    line3 = str(f"Total Votes: {str(total_votes)}")
+    line4 = str("--------------------------")
+    output.write('{}\n{}\n{}\n{}\n'.format(line1, line2, line3, line4))
+    for i in range(len(candidates)):
+        line5_8 = str(f"{candidates[i]}: {str(percent_votes[i])} ({str(num_votes[i])})")
+        output.write('{}\n'.format(line5_8))
+    line9 = "--------------------------"
+    line10 = str(f"Winner: {winning_candidate}")
+    line11 = "--------------------------"
+    output.write('{}\n{}\n{}\n'.format(line9, line10, line11))
